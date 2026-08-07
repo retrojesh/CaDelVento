@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+/* I token del tema (colori, font, spaziature) andranno qui dentro,
+   dopo che avremo scelto lo stile del sito.
+   Esempio: @theme { --color-terracotta: #b5563a; } */
