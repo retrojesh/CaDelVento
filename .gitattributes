@@ -1,0 +1,14 @@
+# Normalizza i fine riga: nel repository sempre LF, a prescindere dal sistema
+# operativo di chi committa. Evita diff sporchi tra Windows, macOS e la CI.
+* text=auto eol=lf
+
+# File binari: nessuna conversione
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
