@@ -1,5 +1,65 @@
 @import 'tailwindcss';
 
-/* I token del tema (colori, font, spaziature) andranno qui dentro,
-   dopo che avremo scelto lo stile del sito.
-   Esempio: @theme { --color-terracotta: #b5563a; } */
+/* Identità visiva: minimalismo caldo.
+   Neutri greige + un solo accento bordeaux, molto spazio, sans-serif. */
+@theme {
+  /* Neutri caldi: sono loro a dare il tono, non l'accento */
+  --color-crema: #faf8f5;
+  --color-greige: #d9d1ca;
+  --color-greige-scuro: #c3bdb7;
+  --color-pietra: #8c847c;
+
+  /* Testo */
+  --color-inchiostro: #1a1a1a;
+  --color-inchiostro-tenue: #5a544e;
+
+  /* Accento: usato con parsimonia (link, dettagli, hover) */
+  --color-vino: #4b0f1d;
+
+  --font-sans: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Traccia larga per le sovrascritte in maiuscoletto */
+  --tracking-occhiello: 0.18em;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-crema);
+    color: var(--color-inchiostro);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Nessuno scroll orizzontale, qualunque cosa succeda nelle sezioni */
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Occhiello: la righetta maiuscola sopra i titoli, ricorrente in tutte le sezioni */
+  .occhiello {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: var(--tracking-occhiello);
+    text-transform: uppercase;
+    color: var(--color-pietra);
+  }
+
+  /* Segnaposto immagine: gradiente neutro al posto delle foto vere.
+     TODO: sostituire con le foto reali, poi eliminare questa classe. */
+  .foto-segnaposto {
+    background-image: linear-gradient(
+      135deg,
+      var(--color-greige) 0%,
+      var(--color-greige-scuro) 55%,
+      var(--color-pietra) 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
