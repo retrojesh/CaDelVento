@@ -1,4 +1,5 @@
 import ChiSiamo from './components/ChiSiamo'
+import Contatti from './components/Contatti'
 import Header from './components/Header'
 import Hero from './components/Hero'
 
@@ -9,7 +10,8 @@ function App() {
       <main>
         <Hero />
         <ChiSiamo />
-        {/* Menu, Galleria e Contatti arrivano nelle prossime PR */}
+        <Contatti />
+        {/* Menu e Galleria arrivano nelle prossime PR */}
       </main>
     </>
   )

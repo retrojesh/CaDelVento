@@ -12,26 +12,22 @@ function ChiSiamo() {
         <div>
           <p className="occhiello">Chi siamo</p>
 
-          {/* TODO: tutti i testi qui sotto sono una bozza, da rivedere con i titolari */}
           <h2 className="mt-4 text-4xl font-light leading-tight md:text-5xl">
-            Una casa sulla collina,
+            Coltiviamo quello
             <br />
-            e una cucina che cambia
-            <br />
-            con le stagioni.
+            che cuciniamo.
           </h2>
 
           <div className="mt-8 space-y-5 text-inchiostro-tenue leading-relaxed">
             <p>
-              Ca' del Vento nasce dove il vento non manca mai: in cima alla
-              collina, con la vista che si apre sulla valle. Da qui viene il
-              nome, e anche il modo di lavorare — senza fretta, seguendo quello
-              che la stagione mette a disposizione.
+              Ca' del Vento è un piccolo agriturismo sulle colline bolognesi. Il
+              km 0, da noi, è una cosa concreta: gran parte di quello che arriva
+              in tavola nasce nel nostro orto, a pochi passi dalla cucina.
             </p>
             <p>
-              Il menu è corto per scelta. Pochi piatti, cambiati spesso, con
-              materie prime dei produttori che conosciamo di persona. Quello che
-              non troviamo buono, semplicemente non lo mettiamo in carta.
+              In carta c'è la cucina bolognese di sempre, fatta con le ricette
+              autentiche e con quello che la stagione mette a disposizione. Nient'altro:
+              né scorciatoie, né ingredienti che hanno viaggiato più di noi.
             </p>
           </div>
 
