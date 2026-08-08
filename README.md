@@ -1,6 +1,7 @@
 # Ca' del Vento
 
-Sito vetrina per la trattoria Ca' del Vento.
+Sito vetrina per l'agriturismo Ca' del Vento — Via Barlete 10/1, Monteveglio (BO).
+Cucina a km 0 con le verdure dell'orto e le ricette della tradizione bolognese.
 
 ## Stack
 
@@ -18,13 +19,16 @@ npm run build    # build di produzione in dist/
 npm run preview  # anteprima locale della build
 ```
 
-## Sezioni previste
+## Sezioni
 
-- Hero + Chi siamo
-- Menu
-- Galleria foto
-- Contatti, mappa e orari
+- [x] Hero + Chi siamo
+- [ ] Menu
+- [ ] Galleria foto
+- [x] Contatti, mappa e orari
 
 ## Stato
 
-Setup iniziale. Contenuti reali da inserire, foto e stile grafico ancora da definire.
+Testi e contatti sono quelli reali. Mancano il menu, la galleria e **tutte le
+foto**: al loro posto ci sono segnaposto a gradiente, marcati `TODO` nel codice.
+
+Indirizzo, orari e recapiti stanno tutti in `src/dati.ts`: si aggiornano lì.

@@ -15,10 +15,9 @@ function Hero() {
           Ca' del Vento
         </h1>
 
-        {/* TODO: sostituire con il claim definitivo */}
         <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-white/90">
-          Cucina di stagione, poche materie prime scelte bene, e il tempo di
-          sedersi a tavola senza fretta.
+          Agriturismo e cucina a km 0 sulle colline bolognesi. Coltiviamo il
+          nostro orto e cuciniamo la tradizione, con le ricette di sempre.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
