@@ -1,7 +1,18 @@
+import { siFacebook, siInstagram, type SimpleIcon } from 'simple-icons'
 import { locale, messaggioWhatsapp, orari } from '../dati'
 import Mappa from './Mappa'
 
 const annoCorrente = new Date().getFullYear()
+
+/* Loghi ufficiali dei marchi, presi da simple-icons.
+   Sono solo tracciati SVG: nel sito finiscono i due che usiamo, non l'intera raccolta. */
+function Logo({ icona }: { icona: SimpleIcon }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="size-5" aria-hidden="true">
+      <path d={icona.path} />
+    </svg>
+  )
+}
 
 function Contatti() {
   return (
@@ -66,22 +77,24 @@ function Contatti() {
               </a>
             </div>
 
-            <div className="mt-5 flex gap-5 text-sm font-semibold text-vino">
+            <div className="mt-6 flex gap-3">
               <a
                 href={locale.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="border-b border-vino pb-0.5 transition-opacity hover:opacity-70"
+                aria-label="Instagram di Ca' del Vento"
+                className="rounded-full border border-greige-scuro p-2.5 text-inchiostro-tenue transition-colors hover:bg-vino hover:text-crema"
               >
-                Instagram
+                <Logo icona={siInstagram} />
               </a>
               <a
                 href={locale.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="border-b border-vino pb-0.5 transition-opacity hover:opacity-70"
+                aria-label="Facebook di Ca' del Vento"
+                className="rounded-full border border-greige-scuro p-2.5 text-inchiostro-tenue transition-colors hover:bg-vino hover:text-crema"
               >
-                Facebook
+                <Logo icona={siFacebook} />
               </a>
             </div>
           </div>
