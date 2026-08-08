@@ -28,13 +28,18 @@ function Header() {
           : 'bg-transparent text-white'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a
-          href="#top"
-          className="text-lg font-semibold tracking-wide"
-          onClick={() => setApertoMobile(false)}
-        >
-          Ca' del Vento
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <a href="#top" onClick={() => setApertoMobile(false)}>
+          {/* Il logo è nero: sopra l'hero scuro va invertito, cioè reso bianco */}
+          <img
+            src="/logo.png"
+            alt="Ca' del Vento — Agriturismo"
+            width={1000}
+            height={594}
+            className={`h-12 w-auto transition-[filter] duration-300 md:h-14 ${
+              staccato || apertoMobile ? '' : 'brightness-0 invert'
+            }`}
+          />
         </a>
 
         <nav className="hidden gap-9 md:flex" aria-label="Navigazione principale">
