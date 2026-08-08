@@ -9,7 +9,7 @@ function Hero() {
       <div className="absolute inset-0 bg-inchiostro/40" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-3xl px-6 text-center text-white">
-        <p className="occhiello text-white/80">{/* TODO: località reale */}Colline di —</p>
+        <p className="occhiello text-white/80">Monteveglio · Colli bolognesi</p>
 
         <h1 className="mt-6 text-5xl font-light tracking-tight sm:text-6xl md:text-7xl">
           Ca' del Vento
