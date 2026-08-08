@@ -1,11 +1,5 @@
-import { indirizzoCompleto, locale, messaggioWhatsapp, orari } from '../dati'
-
-const { lat, lon } = locale.coordinate
-
-/* Riquadro di mappa centrato sul locale, con un margine di ~600 m per lato */
-const bbox = [lon - 0.006, lat - 0.003, lon + 0.006, lat + 0.003].join(',')
-const mappaSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`
-const mappaLink = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}`
+import { locale, messaggioWhatsapp, orari } from '../dati'
+import Mappa from './Mappa'
 
 function Contatti() {
   return (
@@ -24,15 +18,6 @@ function Contatti() {
               <br />
               {locale.cap} {locale.comune} ({locale.provincia})
             </address>
-
-            <a
-              href={mappaLink}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 inline-block border-b border-vino pb-0.5 text-sm font-semibold text-vino transition-opacity hover:opacity-70"
-            >
-              Apri nelle mappe
-            </a>
 
             <h3 className="occhiello mt-10 text-inchiostro">Prenotazioni</h3>
             <p className="mt-4 text-inchiostro-tenue">
@@ -111,13 +96,8 @@ function Contatti() {
           </div>
         </div>
 
-        <div className="mt-14 overflow-hidden rounded-sm border border-greige">
-          <iframe
-            src={mappaSrc}
-            title={`Mappa: ${indirizzoCompleto}`}
-            loading="lazy"
-            className="block h-80 w-full md:h-96"
-          />
+        <div className="mt-14">
+          <Mappa />
         </div>
       </div>
     </section>
