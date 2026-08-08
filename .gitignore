@@ -25,3 +25,4 @@ dist-ssr
 
 # Configurazione locale degli strumenti
 .claude/
+CLAUDE.md
