@@ -1,6 +1,8 @@
 import { locale, messaggioWhatsapp, orari } from '../dati'
 import Mappa from './Mappa'
 
+const annoCorrente = new Date().getFullYear()
+
 function Contatti() {
   return (
     <section id="contatti" className="bg-greige/30">
@@ -10,7 +12,7 @@ function Contatti() {
           Siamo sulle colline di Monteveglio.
         </h2>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+        <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-12">
           <div>
             <h3 className="occhiello text-inchiostro">Dove siamo</h3>
             <address className="mt-4 not-italic leading-relaxed text-inchiostro-tenue">
@@ -18,44 +20,58 @@ function Contatti() {
               <br />
               {locale.cap} {locale.comune} ({locale.provincia})
             </address>
+          </div>
 
-            <h3 className="occhiello mt-10 text-inchiostro">Prenotazioni</h3>
-            <p className="mt-4 text-inchiostro-tenue">
-              Consigliamo di prenotare, soprattutto nel fine settimana.
+          <div>
+            <h3 className="occhiello text-inchiostro">Orari</h3>
+            <dl className="mt-4 space-y-3 text-sm">
+              {orari.map((riga) => (
+                <div key={riga.giorni}>
+                  <dt className="font-semibold">{riga.giorni}</dt>
+                  <dd className="text-inchiostro-tenue">
+                    {riga.pranzo ? `${riga.pranzo} · ${riga.cena}` : 'Chiuso'}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div>
+            <h3 className="occhiello text-inchiostro">Prenotazioni</h3>
+            <p className="mt-4 text-sm text-inchiostro-tenue">
+              Meglio prenotare, soprattutto nel fine settimana.
             </p>
 
-            <div className="mt-5 flex flex-col items-start gap-3">
-              <a
-                href={`https://wa.me/${locale.whatsappLink}?text=${messaggioWhatsapp}`}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-vino px-7 py-3 text-sm font-semibold text-crema transition-opacity hover:opacity-85"
-              >
-                Prenota su WhatsApp
-              </a>
+            <a
+              href={`https://wa.me/${locale.whatsappLink}?text=${messaggioWhatsapp}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-block rounded-full bg-vino px-7 py-3 text-sm font-semibold text-crema transition-opacity hover:opacity-85"
+            >
+              Prenota su WhatsApp
+            </a>
 
+            <div className="mt-5 space-y-1 text-sm">
               <a
                 href={`tel:${locale.telefonoLink}`}
-                className="text-xl font-light transition-opacity hover:opacity-70"
+                className="block text-lg font-light transition-opacity hover:opacity-70"
               >
                 {locale.telefono}
               </a>
-
               <a
                 href={`mailto:${locale.email}`}
-                className="text-inchiostro-tenue underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+                className="block text-inchiostro-tenue underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
               >
                 {locale.email}
               </a>
             </div>
 
-            <h3 className="occhiello mt-10 text-inchiostro">Seguici</h3>
-            <div className="mt-4 flex gap-6">
+            <div className="mt-5 flex gap-5 text-sm font-semibold text-vino">
               <a
                 href={locale.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="border-b border-vino pb-0.5 text-sm font-semibold text-vino transition-opacity hover:opacity-70"
+                className="border-b border-vino pb-0.5 transition-opacity hover:opacity-70"
               >
                 Instagram
               </a>
@@ -63,42 +79,23 @@ function Contatti() {
                 href={locale.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="border-b border-vino pb-0.5 text-sm font-semibold text-vino transition-opacity hover:opacity-70"
+                className="border-b border-vino pb-0.5 transition-opacity hover:opacity-70"
               >
                 Facebook
               </a>
             </div>
-          </div>
-
-          <div>
-            <h3 className="occhiello text-inchiostro">Orari</h3>
-            <dl className="mt-4">
-              {orari.map((riga) => (
-                <div
-                  key={riga.giorni}
-                  className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-b border-greige py-4"
-                >
-                  <dt className="font-semibold">{riga.giorni}</dt>
-                  <dd className="text-right text-inchiostro-tenue">
-                    {riga.pranzo ? (
-                      <>
-                        {riga.pranzo}
-                        <br />
-                        {riga.cena}
-                      </>
-                    ) : (
-                      'Chiuso'
-                    )}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
 
         <div className="mt-14">
           <Mappa />
         </div>
+
+        {/* Chiusura di pagina: solo ciò che non compare altrove.
+            TODO: la partita IVA è obbligatoria sul sito di un'attività, chiederla ai titolari. */}
+        <p className="mt-16 border-t border-greige pt-6 text-xs text-pietra">
+          © {annoCorrente} {locale.nome} · P. IVA —
+        </p>
       </div>
     </section>
   )
