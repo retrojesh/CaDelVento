@@ -1,5 +1,5 @@
 import { siFacebook, siInstagram, type SimpleIcon } from 'simple-icons'
-import { locale, messaggioWhatsapp, orari } from '../dati'
+import { locale, messaggioWhatsapp, orari, turniLeggibili } from '../dati'
 import Mappa from './Mappa'
 
 const annoCorrente = new Date().getFullYear()
@@ -40,7 +40,7 @@ function Contatti() {
                 <div key={riga.giorni}>
                   <dt className="font-semibold">{riga.giorni}</dt>
                   <dd className="text-inchiostro-tenue">
-                    {riga.pranzo ? `${riga.pranzo} · ${riga.cena}` : 'Chiuso'}
+                    {riga.turni.length ? turniLeggibili(riga.turni) : 'Chiuso'}
                   </dd>
                 </div>
               ))}
