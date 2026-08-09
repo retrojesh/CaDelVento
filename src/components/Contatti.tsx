@@ -60,6 +60,7 @@ function Contatti() {
               className="mt-5 inline-block rounded-full bg-vino px-7 py-3 text-sm font-semibold text-crema transition-opacity hover:opacity-85"
             >
               Prenota su WhatsApp
+              <span className="sr-only"> (si apre in una nuova finestra)</span>
             </a>
 
             <div className="mt-5 space-y-1 text-sm">
@@ -82,7 +83,7 @@ function Contatti() {
                 href={locale.instagram}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Instagram di Ca' del Vento"
+                aria-label="Instagram di Ca' del Vento (si apre in una nuova finestra)"
                 className="rounded-full border border-greige-scuro p-2.5 text-inchiostro-tenue transition-colors hover:bg-vino hover:text-crema"
               >
                 <Logo icona={siInstagram} />
@@ -91,7 +92,7 @@ function Contatti() {
                 href={locale.facebook}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Facebook di Ca' del Vento"
+                aria-label="Facebook di Ca' del Vento (si apre in una nuova finestra)"
                 className="rounded-full border border-greige-scuro p-2.5 text-inchiostro-tenue transition-colors hover:bg-vino hover:text-crema"
               >
                 <Logo icona={siFacebook} />
