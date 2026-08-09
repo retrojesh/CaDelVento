@@ -39,6 +39,18 @@
   section[id] {
     scroll-margin-top: 5rem;
   }
+
+  /*
+   * Contorno di focus per chi naviga da tastiera. Doppio anello di proposito:
+   * quello chiaro si vede sull'hero scuro, quello bordeaux sui fondi chiari.
+   * Nessun border-radius qui, così l'anello segue la forma dell'elemento
+   * e non squadra i pulsanti a pillola.
+   */
+  :focus-visible {
+    outline: 2px solid var(--color-crema);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-vino);
+  }
 }
 
 @layer components {

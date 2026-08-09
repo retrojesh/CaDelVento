@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const voci = [
   { href: '#chi-siamo', testo: 'Chi siamo' },
@@ -10,6 +10,7 @@ const voci = [
 function Header() {
   const [apertoMobile, setApertoMobile] = useState(false)
   const [staccato, setStaccato] = useState(false)
+  const pulsanteMenu = useRef<HTMLButtonElement>(null)
 
   // Sopra l'hero l'header è trasparente; appena si scorre diventa opaco,
   // altrimenti il testo bianco finisce sul crema e sparisce.
@@ -19,6 +20,22 @@ function Header() {
     window.addEventListener('scroll', alloScroll, { passive: true })
     return () => window.removeEventListener('scroll', alloScroll)
   }, [])
+
+  // Esc chiude il menu e riporta il focus sul pulsante, altrimenti chi naviga
+  // da tastiera si ritrova il cursore nel nulla.
+  useEffect(() => {
+    if (!apertoMobile) return
+
+    const allEsc = (evento: KeyboardEvent) => {
+      if (evento.key === 'Escape') {
+        setApertoMobile(false)
+        pulsanteMenu.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', allEsc)
+    return () => document.removeEventListener('keydown', allEsc)
+  }, [apertoMobile])
 
   return (
     <header
@@ -55,6 +72,7 @@ function Header() {
         </nav>
 
         <button
+          ref={pulsanteMenu}
           type="button"
           className="md:hidden"
           aria-expanded={apertoMobile}
