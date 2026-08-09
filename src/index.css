@@ -75,18 +75,8 @@
   }
 }
 
-/* Chi ha chiesto meno animazioni nelle impostazioni di sistema non deve
-   subire né lo scorrimento morbido né le dissolvenze. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
