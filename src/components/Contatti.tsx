@@ -60,6 +60,9 @@ function Contatti() {
               className="mt-5 inline-block rounded-full bg-vino px-7 py-3 text-sm font-semibold text-crema transition-opacity hover:opacity-85"
             >
               Prenota su WhatsApp
+              {/* Letto solo dagli screen reader: avvisa che il link porta
+                  fuori dal sito. A schermo il pulsante resta identico. */}
+              <span className="sr-only"> (si apre in una nuova finestra)</span>
             </a>
 
             <div className="mt-5 space-y-1 text-sm">
