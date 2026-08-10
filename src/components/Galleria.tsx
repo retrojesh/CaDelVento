@@ -1,4 +1,4 @@
-import { galleria, locale, segnapostiGalleria } from '../dati'
+import { galleria, segnapostiGalleria } from '../dati'
 
 /* Ritagli alternati: tutte le celle uguali darebbero una griglia da catalogo,
    che è l'opposto del tono che vogliamo. */
@@ -38,22 +38,6 @@ function Galleria() {
               />
             ))}
       </div>
-
-      {vuota && (
-        <p className="mt-8 text-sm text-inchiostro-tenue">
-          Le foto arrivano presto. Nel frattempo ne trovate parecchie sul nostro{' '}
-          <a
-            href={locale.instagram}
-            target="_blank"
-            rel="noreferrer"
-            className="border-b border-vino pb-0.5 font-semibold text-vino transition-opacity hover:opacity-70"
-          >
-            profilo Instagram
-            <span className="sr-only"> (si apre in una nuova finestra)</span>
-          </a>
-          .
-        </p>
-      )}
     </section>
   )
 }
