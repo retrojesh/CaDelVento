@@ -92,6 +92,21 @@ export function prezzoLeggibile(prezzo: number) {
   })} €`
 }
 
+/**
+ * Le foto della galleria.
+ *
+ * TODO: mancano le foto. Vanno messe in `public/galleria/`, già ridimensionate
+ * (lato lungo 1600 px) e convertite in `.webp` sotto i 250 KB l'una: entrano nel
+ * repo, quindi il peso resta per sempre. L'`alt` descrive la foto a chi non la
+ * vede ed è obbligatorio. Finché l'elenco è vuoto la sezione mostra i segnaposto.
+ *
+ * Esempio di riga: { file: '/galleria/sala.webp', alt: 'La sala apparecchiata' }
+ */
+export const galleria: readonly { file: string; alt: string }[] = []
+
+/** Quanti segnaposto mostrare finché le foto vere non ci sono. */
+export const segnapostiGalleria = 6
+
 /** Come mostrare i turni di un giorno in pagina. Stringa vuota = chiuso. */
 export function turniLeggibili(turni: readonly (readonly string[])[]) {
   return turni.map(([apre, chiude]) => `${apre} – ${chiude}`).join(' · ')
