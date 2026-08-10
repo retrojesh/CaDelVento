@@ -10,12 +10,31 @@ const voci = [
 function Header() {
   const [apertoMobile, setApertoMobile] = useState(false)
   const [staccato, setStaccato] = useState(false)
+  const [voceAttiva, setVoceAttiva] = useState('')
   const pulsanteMenu = useRef<HTMLButtonElement>(null)
 
   // Sopra l'hero l'header è trasparente; appena si scorre diventa opaco,
-  // altrimenti il testo bianco finisce sul crema e sparisce.
+  // altrimenti il testo bianco finisce sul crema e sparisce. Nello stesso
+  // giro si decide anche quale voce di navigazione accendere: la sezione
+  // che occupa la riga a un terzo dello schermo, cioè quella in lettura.
   useEffect(() => {
-    const alloScroll = () => setStaccato(window.scrollY > 24)
+    const alloScroll = () => {
+      const scorso = window.scrollY > 24
+      setStaccato(scorso)
+
+      if (!scorso) {
+        // Sull'hero non si sta leggendo nessuna sezione: nessuna voce accesa.
+        setVoceAttiva('')
+        return
+      }
+
+      const riga = window.innerHeight / 3
+      const inLettura = voci.findLast((voce) => {
+        const sezione = document.querySelector(voce.href)
+        return sezione ? sezione.getBoundingClientRect().top <= riga : false
+      })
+      setVoceAttiva(inLettura ? inLettura.href : '')
+    }
     alloScroll()
     window.addEventListener('scroll', alloScroll, { passive: true })
     return () => window.removeEventListener('scroll', alloScroll)
@@ -64,7 +83,14 @@ function Header() {
             <a
               key={voce.href}
               href={voce.href}
-              className="text-sm transition-opacity hover:opacity-60"
+              // Letto dagli screen reader come "pagina corrente": l'evidenza
+              // non è solo un fatto di colore.
+              aria-current={voceAttiva === voce.href ? 'true' : undefined}
+              // Solo il filetto sotto, non il grassetto: cambiando peso le voci
+              // cambierebbero larghezza e la barra ballerebbe a ogni sezione.
+              className={`border-b pb-1 text-sm transition-opacity hover:opacity-60 ${
+                voceAttiva === voce.href ? 'border-current' : 'border-transparent'
+              }`}
             >
               {voce.testo}
             </a>
@@ -97,7 +123,10 @@ function Header() {
               <li key={voce.href}>
                 <a
                   href={voce.href}
-                  className="block py-3 text-sm"
+                  aria-current={voceAttiva === voce.href ? 'true' : undefined}
+                  className={`block py-3 text-sm ${
+                    voceAttiva === voce.href ? 'font-semibold text-vino' : ''
+                  }`}
                   onClick={() => setApertoMobile(false)}
                 >
                   {voce.testo}
