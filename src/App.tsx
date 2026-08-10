@@ -1,5 +1,6 @@
 import ChiSiamo from './components/ChiSiamo'
 import Contatti from './components/Contatti'
+import Galleria from './components/Galleria'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Menu from './components/Menu'
@@ -25,8 +26,8 @@ function App() {
         <Hero />
         <ChiSiamo />
         <Menu />
+        <Galleria />
         <Contatti />
-        {/* La Galleria arriva nella prossima PR */}
       </main>
     </>
   )
