@@ -63,6 +63,35 @@ export const orari = [
   },
 ] as const
 
+/**
+ * Il menu, diviso per categoria.
+ *
+ * TODO: mancano i piatti veri. Servono, per ogni categoria, i nomi dei piatti,
+ * la descrizione breve degli ingredienti e il prezzo in euro. Finché `piatti`
+ * resta vuoto la categoria compare in pagina come "in aggiornamento":
+ * nessun piatto e nessun prezzo è inventato di proposito.
+ *
+ * Esempio di riga, quando arriveranno i dati:
+ *   { nome: 'Tortellini in brodo', descrizione: 'Brodo di cappone', prezzo: 14 }
+ */
+export const menu: readonly {
+  categoria: string
+  piatti: readonly { nome: string; descrizione?: string; prezzo: number }[]
+}[] = [
+  { categoria: 'Antipasti', piatti: [] },
+  { categoria: 'Primi', piatti: [] },
+  { categoria: 'Secondi', piatti: [] },
+  { categoria: 'Contorni', piatti: [] },
+  { categoria: 'Dolci', piatti: [] },
+]
+
+/** Prezzo in euro come si scrive in carta: 14 → «14 €», 12.5 → «12,50 €». */
+export function prezzoLeggibile(prezzo: number) {
+  return `${prezzo.toLocaleString('it-IT', {
+    minimumFractionDigits: Number.isInteger(prezzo) ? 0 : 2,
+  })} €`
+}
+
 /** Come mostrare i turni di un giorno in pagina. Stringa vuota = chiuso. */
 export function turniLeggibili(turni: readonly (readonly string[])[]) {
   return turni.map(([apre, chiude]) => `${apre} – ${chiude}`).join(' · ')

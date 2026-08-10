@@ -2,6 +2,7 @@ import ChiSiamo from './components/ChiSiamo'
 import Contatti from './components/Contatti'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Menu from './components/Menu'
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
       <main id="contenuto">
         <Hero />
         <ChiSiamo />
+        <Menu />
         <Contatti />
-        {/* Menu e Galleria arrivano nelle prossime PR */}
+        {/* La Galleria arriva nella prossima PR */}
       </main>
     </>
   )
