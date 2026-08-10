@@ -41,6 +41,12 @@ function metadatiSeo(): Plugin {
     telephone: locale.telefonoLink,
     email: locale.email,
     servesCuisine: 'Cucina bolognese tradizionale, km 0',
+    currenciesAccepted: 'EUR',
+    // Si prenota per telefono e su WhatsApp: Google lo mostra nella scheda.
+    acceptsReservations: true,
+    // TODO: quando la carta sarà in pagina, Google potrà leggerla da qui.
+    // Finché `menu` in src/dati.ts è vuoto l'ancora esiste ma non dice nulla.
+    hasMenu: `${sitoUrl}/#menu`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: locale.via,
