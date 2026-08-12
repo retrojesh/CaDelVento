@@ -16,10 +16,10 @@ function Logo({ icona }: { icona: SimpleIcon }) {
 
 function Contatti() {
   return (
-    <section id="contatti" className="bg-greige/30">
+    <section id="contatti" aria-labelledby="titolo-contatti" className="bg-greige/30">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <p className="occhiello">Contatti</p>
-        <h2 className="mt-4 max-w-2xl text-4xl font-light leading-tight md:text-5xl">
+        <h2 id="titolo-contatti" className="mt-4 max-w-2xl text-4xl font-light leading-tight md:text-5xl">
           Siamo sulle colline di Monteveglio.
         </h2>
 

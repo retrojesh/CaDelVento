@@ -1,6 +1,6 @@
 function ChiSiamo() {
   return (
-    <section id="chi-siamo" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <section id="chi-siamo" aria-labelledby="titolo-chi-siamo" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
       <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
         {/* TODO: sostituire con una foto vera (la sala, la cucina, chi ci lavora).
             Formato consigliato: 1200×1500 verticale, .webp. */}
@@ -12,8 +12,10 @@ function ChiSiamo() {
         <div>
           <p className="occhiello">Chi siamo</p>
 
-          <h2 className="mt-4 text-4xl font-light leading-tight md:text-5xl">
-            Coltiviamo quello
+          <h2 id="titolo-chi-siamo" className="mt-4 text-4xl font-light leading-tight md:text-5xl">
+            {/* Lo spazio prima dell'a capo non si vede, ma senza gli screen
+                reader leggono "quelloche" quando annunciano la sezione. */}
+            Coltiviamo quello{' '}
             <br />
             che cuciniamo.
           </h2>
