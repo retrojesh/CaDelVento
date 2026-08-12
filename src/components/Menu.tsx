@@ -2,11 +2,11 @@ import { menu, prezzoLeggibile } from '../dati'
 
 function Menu() {
   return (
-    <section id="menu" className="bg-greige/30">
+    <section id="menu" aria-labelledby="titolo-menu" className="bg-greige/30">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <p className="occhiello">Menu</p>
 
-        <h2 className="mt-4 max-w-2xl text-4xl font-light leading-tight md:text-5xl">
+        <h2 id="titolo-menu" className="mt-4 max-w-2xl text-4xl font-light leading-tight md:text-5xl">
           La tradizione bolognese,
           <br className="hidden sm:block" /> con l'orto qui fuori.
         </h2>
